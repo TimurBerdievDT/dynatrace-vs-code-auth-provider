@@ -1,0 +1,43 @@
+{
+  "name": "dt-vscode-base-login",
+  "displayName": "Dynatrace Login",
+  "description": "Shared Dynatrace authentication provider for VS Code extensions",
+  "version": "0.0.1",
+  "publisher": "Dynatrace",
+  "main": "./dist/extension.js",
+  "engines": {
+    "vscode": "^1.85.0",
+    "node": ">=18.0.0"
+  },
+  "activationEvents": [],
+  "contributes": {
+    "commands": [
+      {
+        "command": "dynatrace.baseLogin.logout",
+        "title": "Dynatrace: Log out"
+      }
+    ],
+    "authentication": [
+      {
+        "id": "dynatrace.debugger.oauth2",
+        "label": "Dynatrace Login"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "type-check": "tsc --noEmit -p tsconfig.json",
+    "lint": "eslint .",
+    "package": "vsce package --allow-missing-repository",
+    "test": "echo 'No tests yet'"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.22.0",
+    "@types/node": "20.17.9",
+    "@types/vscode": "1.85.0",
+    "eslint": "9.22.0",
+    "@vscode/vsce": "3.7.1",
+    "typescript": "5.8.2",
+    "typescript-eslint": "8.26.0"
+  }
+}

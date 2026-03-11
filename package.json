@@ -1,6 +1,6 @@
 {
-  "name": "dt-vscode-base-login",
-  "displayName": "Dynatrace Login",
+  "name": "dynatrace-vs-code-auth-provider",
+  "displayName": "Dynatrace VS Code Auth Provider",
   "description": "Shared Dynatrace authentication provider for VS Code extensions",
   "version": "0.0.1",
   "publisher": "Dynatrace",
@@ -9,17 +9,41 @@
     "vscode": "^1.85.0",
     "node": ">=18.0.0"
   },
-  "activationEvents": [],
+  "activationEvents": [
+    "onCommand:dynatrace.login",
+    "onCommand:dynatrace.logout",
+    "onAuthenticationRequest:dynatrace.authentication"
+  ],
   "contributes": {
     "commands": [
       {
-        "command": "dynatrace.baseLogin.logout",
-        "title": "Dynatrace: Log out"
+        "command": "dynatrace.login",
+        "title": "Log in",
+        "category": "Dynatrace"
+      },
+      {
+        "command": "dynatrace.logout",
+        "title": "Log out",
+        "category": "Dynatrace"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "dynatrace.login",
+        "key": "ctrl+shift+d ctrl+shift+l",
+        "mac": "cmd+shift+d cmd+shift+l",
+        "when": "!dynatrace.isLoggedIn"
+      },
+      {
+        "command": "dynatrace.logout",
+        "key": "ctrl+shift+d ctrl+shift+o",
+        "mac": "cmd+shift+d cmd+shift+o",
+        "when": "dynatrace.isLoggedIn"
       }
     ],
     "authentication": [
       {
-        "id": "dynatrace.debugger.oauth2",
+        "id": "dynatrace.authentication",
         "label": "Dynatrace Login"
       }
     ]

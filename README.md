@@ -1,11 +1,11 @@
-# Dynatrace VS Code Base Login
+# Dynatrace VS Code Auth Provider
 
-This extension owns the shared authentication provider `dynatrace.debugger.oauth2`.
+This extension owns the shared authentication provider `dynatrace.authentication`.
 
 ## Contract
 
-- Provider ID: `dynatrace.debugger.oauth2`
+- Provider ID: `dynatrace.authentication`
 - Shared via VS Code Authentication API (`vscode.authentication.getSession`)
-- Exposes command `dynatrace.baseLogin.logout` to remove the active session
+- Exposes commands `dynatrace.login` and `dynatrace.logout` for authentication control
 
-Consumer extensions should depend on `Dynatrace.dt-vscode-base-login` and request sessions with matching scopes.
+Consumer extensions should depend on `Dynatrace.dynatrace-vs-code-auth-provider` and request sessions with matching scopes.

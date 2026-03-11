@@ -25,10 +25,10 @@ interface JwtPayloadLike {
 
 const AUTH_PORT = 3232
 const AUTH_PATH = '/auth/login'
-const OAUTH_SECRETS_PREFIX = 'dynatrace.debugger.oauth2'
+const OAUTH_SECRETS_PREFIX = 'dynatrace.authentication'
 export const SESSIONS_SECRET_KEY = `${OAUTH_SECRETS_PREFIX}.sessions`
 const REFRESH_TOKEN_SECRET_KEY = `${OAUTH_SECRETS_PREFIX}.refresh.token`
-export const AUTH_IDENTIFIER = 'dynatrace.debugger.oauth2'
+export const AUTH_IDENTIFIER = 'dynatrace.authentication'
 const AUTH_TITLE = 'Dynatrace SSO'
 
 type AuthSessionChangeReason = 'added' | 'changed'
